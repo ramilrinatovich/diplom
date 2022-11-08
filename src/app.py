@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
-import pandas as pd
 import pickle
+
+import pandas as pd
+from flask import Flask, render_template, request
 
 MODELS_PATH = '../models/'
 
@@ -160,7 +161,7 @@ def model_1_2_page():
         data, error = get_data_from_form(features, params)
         if error == '':
             # Входные данные корректны, выполняется логика
-            x = pd.DataFrame(data, index=[0])
+            x = pd.DataFrame(data,dtype=float, index=[0])
             # для модуля упругости при растяжении
             preprocessor1 = load_pickle_obj('preprocessor1')
             model1 = load_pickle_obj('model1_best')
@@ -172,7 +173,7 @@ def model_1_2_page():
             model2 = load_pickle_obj('model2_best')
             x2 = preprocessor2.transform(x)
             y2 = model2.predict(x2)
-            var9 = y2[0]
+            #var9 = y2[0]
     # Отображение результата
     return render_template('model_1_2.html', params=params, error=error, inputs=x.to_html(), var8=var8, var9=var9)
 
