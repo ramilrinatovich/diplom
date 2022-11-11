@@ -147,8 +147,8 @@ def model_1_2_page():
     # params = {'var1': '', 'var2': '', 'var3': '', 'var4': '', 'var5': '', 'var6': '', 'var7': '',
     #           'var10': '', 'var11': '', 'var12': '', 'var13': ''}
     # тестовый пример 19, var8=73.62282622 var9=2519.45385534
-    params = dict(zip(features.keys(), ['4.02912621359223', '1880.0', '622.0', '111.86',
-         '22.2678571428571', '284.615384615384', '470.0', '220.0', '90.0',
+    params = dict(zip(features.keys(), ['4.0', '1880.0', '622.0', '111.86',
+         '22.3', '284.6', '470.0', '220.0', '90.0',
          '4.0', '60.0']))
     #
     error = ''
@@ -173,7 +173,7 @@ def model_1_2_page():
             model2 = load_pickle_obj('model2_best')
             x2 = preprocessor2.transform(x)
             y2 = model2.predict(x2)
-            #var9 = y2[0]
+            var9 = y2[0]
     # Отображение результата
     return render_template('model_1_2.html', params=params, error=error, inputs=x.to_html(), var8=var8, var9=var9)
 
@@ -199,9 +199,9 @@ def model_3_page():
     # params = {'var2': '', 'var3': '', 'var4': '', 'var5': '', 'var6': '', 'var7': '',
     #           'var8': '', 'var9': '', 'var10': '', 'var11': '', 'var12': '', 'var13': ''}
     # тестовый пример 19, var1=1.91201925
-    params = dict(zip(features.keys(), ['1880.0', '622.0', '111.86', '22.2678571428571',
-       '284.615384615384', '470.0', '73.3333333333333',
-       '2455.55555555555', '220.0', '90.0', '4.0', '60.0']))
+    params = dict(zip(features.keys(), ['1880.0', '622.0', '111.86', '22.0',
+       '284.615384615384', '470.0', '73.3',
+       '2455.6', '220.0', '90.0', '4.0', '60.0']))
     #
     error = ''
     x = pd.DataFrame()
