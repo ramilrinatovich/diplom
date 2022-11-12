@@ -169,11 +169,11 @@ def model_1_2_page():
             y1 = model1.predict(x1)
             var8 = y1[0]
             # для прочности при растяжении
-            # preprocessor2 = load_pickle_obj('preprocessor2')
-            # model2 = load_pickle_obj('model2_best')
-            # x2 = preprocessor2.transform(x)
-            # y2 = model2.predict(x2)
-            var9 = y1[0]
+            preprocessor2 = load_pickle_obj('preprocessor2')
+            model2 = load_pickle_obj('model2_best')
+            x2 = preprocessor2.transform(x)
+            y2 = model2.predict(x2)
+            var9 = y2[0]
     # Отображение результата
     return render_template('model_1_2.html', params=params, error=error, inputs=x.to_html(), var8=var8, var9=var9)
 
